@@ -34,7 +34,7 @@ var staticFilesHandler = func() http.Handler {
 	return http.FileServer(http.FS(staticFiles))
 }()
 
-func collectPageGroups() map[string]*PageGroup {
+func collectPageGroups() map[string] PageGroup {
 	if wdIsGo101ProjectRoot {
 		return collectPageGroups_NonEmbedding()
 	}
@@ -44,7 +44,7 @@ func collectPageGroups() map[string]*PageGroup {
 		panic("collect page groups (embedding) error: " + err.Error())
 	}
 
-	pageGroups := make(map[string]*PageGroup, len(entries))
+	pageGroups := make(map[string]#PageGroup, len(entries))
 
 	for _, e := range entries {
 		if e.IsDir() {
@@ -117,3 +117,4 @@ func updateGolang101() {
 
 	// no ideas how to update
 }
+ 
