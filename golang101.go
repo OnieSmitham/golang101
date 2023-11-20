@@ -21,7 +21,7 @@ import (
 type Go101 struct {
 	staticHandler http.Handler
 	isLocalServer bool
-	pageGroups    map[string]*PageGroup
+	pageGroups    map[string] PageGroup
 	articlePages  map[[2]string][]byte
 	serverMutex   sync.Mutex
 	theme         string
@@ -509,3 +509,4 @@ func goGet(pkgPath, wd string) {
 		log.Println("go get -u " + pkgPath + " succeeded.")
 	}
 }
+ 
